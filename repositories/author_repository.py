@@ -6,7 +6,8 @@ def save(author):
     sql = "INSERT INTO authors (name) VALUES (%s) RETURNING *"
     values = [author.name]
     results = run_sql(sql, values)
-    author.id = results[0]['id']
+    id = results[0]['id']
+    author.id = id
     return author
 
 
@@ -22,7 +23,7 @@ def select_all():
 
 
 def select(id):
-    sql = "SELECT * FROM books WHERE id = %s"
+    sql = "SELECT * FROM authors WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
     if result is not None:
@@ -30,12 +31,12 @@ def select(id):
     return author
 
 def delete_all():
-    sql = "DELETE  FROM books"
+    sql = "DELETE  FROM authors"
     run_sql(sql)
 
 
 def delete(id):
-    sql = "DELETE  FROM books WHERE id = %s"
+    sql = "DELETE  FROM authors WHERE id = %s"
     values = [id]
     run_sql(sql, values)
 

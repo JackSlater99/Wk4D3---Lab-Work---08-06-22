@@ -3,12 +3,11 @@
 {% block content %}
 
   <div>
-    <p>{{task.description}}</p>
+    <p>{{book.title}}</p>
     <hr>
-    <p>{{task.user.first_name}}</p>
-    <p>{{task.duration}} mins</p>
-    <p>Completed? {{task.completed}}</p>
-    <p><a href="/tasks/{{task.id}}/edit">Edit</a></p>
+    <p>{{book.author.name}}</p>
+    <p>{{book.genre}}</p>
+    <p><a href="/books/{{books.id}}/edit">Edit</a></p>
   </div>
 
 {% endblock %}
